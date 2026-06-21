@@ -597,3 +597,140 @@ section {
 /* ─── Utilities ─────────────────────────────────────────────────────────────── */
 .text-accent { color: var(--accent); }
 .text-body-dim { color: var(--text-muted); }
+
+/* ─── Responsive ────────────────────────────────────────────────────────────── */
+
+/* Tablet and below (< 992px) — navbar collapses, tighten sections */
+@media (max-width: 991.98px) {
+  #profile,
+  #projects,
+  #scienceart {
+    padding: 3.5rem 0;
+  }
+
+  #followme {
+    padding: 2.5rem 0 1.5rem;
+  }
+
+  /* Collapsed nav gets its own opaque background */
+  .custom-navbar .navbar-collapse {
+    background: rgba(10, 11, 14, 0.97);
+    border-top: 1px solid var(--border);
+    border-radius: 0 0 var(--radius) var(--radius);
+    margin-top: 0.5rem;
+    padding: 0.5rem 0.25rem;
+  }
+
+  /* Remove horizontal gap between stacked nav items */
+  .custom-navbar .navbar-nav {
+    gap: 0 !important;
+  }
+
+  .custom-navbar .nav-link {
+    padding: 0.65rem 1rem !important;
+  }
+}
+
+/* Phone (< 768px) — profile stacks, font sizes shrink */
+@media (max-width: 767.98px) {
+  #profile,
+  #projects,
+  #scienceart {
+    padding: 2.75rem 0;
+  }
+
+  #followme {
+    padding: 2rem 0 1.25rem;
+  }
+
+  .section-heading {
+    font-size: 1.4rem;
+  }
+
+  .section-divider {
+    margin-bottom: 2rem;
+  }
+
+  .hero-inner img {
+    max-height: 52px;
+  }
+
+  .hero-tagline {
+    font-size: 0.875rem;
+  }
+
+  .hero-scroll-cue {
+    margin-top: 1.75rem;
+  }
+
+  /* Reduce the large row gap when profile columns stack */
+  #profile .row {
+    --bs-gutter-y: 1.5rem;
+  }
+
+  .profile-photo-wrap img {
+    max-width: 200px;
+  }
+
+  .featured-project-body {
+    padding: 1.25rem;
+  }
+
+  .featured-project-img img {
+    max-height: 240px;
+  }
+
+  /* Long publication titles must not overflow */
+  .publications-list li {
+    overflow-wrap: break-word;
+    word-break: break-word;
+  }
+
+  /* Footer: keep columns left-aligned when stacked */
+  .footer-links,
+  .footer-social {
+    text-align: left !important;
+  }
+
+  .social-icons {
+    justify-content: flex-start !important;
+  }
+}
+
+/* Small phones (< 576px) — tighten further */
+@media (max-width: 575.98px) {
+  #profile,
+  #projects,
+  #scienceart {
+    padding: 2rem 0;
+  }
+
+  .section-heading {
+    font-size: 1.25rem;
+  }
+
+  .hero-inner img {
+    max-height: 40px;
+  }
+
+  .hero-tagline {
+    font-size: 0.8rem;
+  }
+
+  .experience-banner p {
+    font-size: 0.82rem;
+  }
+
+  .credential-item {
+    padding: 0.9rem 1rem;
+  }
+
+  .publications-list {
+    padding: 0.75rem 1rem;
+  }
+
+  #backToTop {
+    bottom: 16px;
+    right: 16px;
+  }
+}
