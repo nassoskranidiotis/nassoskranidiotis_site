@@ -12,6 +12,7 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden; /* prevent horizontal scroll that pushes fixed navbar off-screen */
 }
 
 html, body {
@@ -19,6 +20,8 @@ html, body {
   font-family: 'Inter', sans-serif;
   background: transparent;
   color: #e8eaed;
+  max-width: 100%;
+  overflow-x: hidden; /* prevent AOS slide-in transforms from widening the layout viewport */
 }
 
 
@@ -612,6 +615,13 @@ section {
     padding: 2.5rem 0 1.5rem;
   }
 
+  /* Cap logo width so it never pushes the toggler button off-screen */
+  .custom-navbar .navbar-brand img {
+    max-width: calc(100vw - 80px);
+    height: 36px;
+    width: auto;
+  }
+
   /* Collapsed nav gets its own opaque background */
   .custom-navbar .navbar-collapse {
     background: rgba(10, 11, 14, 0.97);
@@ -694,6 +704,20 @@ section {
 
   .social-icons {
     justify-content: flex-start !important;
+  }
+}
+
+/* AOS: replace horizontal slide animations with a simple vertical fade on all
+   mobile viewports so the pre-animation transform never causes horizontal overflow */
+@media (max-width: 991.98px) {
+  [data-aos="fade-left"],
+  [data-aos="fade-right"] {
+    transform: translate3d(0, 24px, 0) !important;
+  }
+
+  [data-aos="fade-left"].aos-animate,
+  [data-aos="fade-right"].aos-animate {
+    transform: translate3d(0, 0, 0) !important;
   }
 }
 
